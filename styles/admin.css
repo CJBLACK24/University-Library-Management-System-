@@ -1,0 +1,222 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .admin-container {
+        @apply flex flex-1 flex-col bg-light-300 dark:bg-black p-5 xs:p-10;
+    }
+    
+    .dark .admin-container {
+        /* 3-layer background exactly like Vercel */
+        background-color: #000000;
+        background-image: 
+            /* Layer 2: Subtle dot pattern overlay */
+            radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.03) 1px, transparent 0),
+            /* Layer 3: Very subtle gradient for depth */
+            linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 100%);
+        background-size: 20px 20px, 100% 100%;
+        background-position: 0 0, 0 0;
+    }
+
+    .back-btn {
+        @apply mb-10 w-fit border border-light-300 bg-white text-xs font-medium text-dark-200 hover:bg-light-300 !important;
+    }
+
+    /* Confirmation Dialog */
+    .confirm-trigger {
+        @apply font-semibold text-sm shadow-none hover:bg-opacity-70 w-full !important;
+    }
+
+    .confirm-approve {
+        @apply bg-green-100 text-green-800 hover:bg-green-100/70 !important;
+    }
+
+    .confirm-reject {
+        @apply bg-red-100 text-red-800 hover:bg-red-100/70 !important;
+    }
+
+    .confirm-content {
+        @apply sm:max-w-md flex flex-col items-center justify-center p-6 dark:border dark:border-[rgba(255,255,255,0.1)] dark:shadow-none !important;
+    }
+
+    .confirm-illustration {
+        @apply size-28 rounded-full flex justify-center items-center mx-auto;
+    }
+
+    .confirm-illustration div:first-child {
+        @apply size-[70%] rounded-full flex justify-center items-center;
+    }
+
+    .confirm-btn {
+        @apply w-full min-h-14 rounded-xl font-bold text-base text-light-800 !important;
+    }
+
+    /* Book Form */
+    .book-form_input {
+        @apply min-h-14 border border-gray-100 dark:border-[rgba(255,255,255,0.1)] dark:shadow-none bg-light-600 dark:bg-[#111111] p-4 text-base font-semibold placeholder:font-normal placeholder:text-slate-500 dark:placeholder:text-muted-foreground dark:text-foreground !important;
+    }
+
+    .book-form_btn {
+        @apply min-h-14 w-full bg-primary-admin hover:bg-primary-admin/95 !important;
+    }
+
+    /* Home Page */
+    .view-btn {
+        @apply bg-light-300 rounded-md text-primary-admin font-semibold hover:bg-light-300/80 shadow-none !important;
+    }
+
+    .add-new-book_btn {
+        @apply mt-7 mb-3 bg-white dark:bg-white border border-black dark:border-[rgba(255,255,255,0.1)] dark:shadow-none py-4 px-3 flex flex-row items-center rounded-xl gap-4;
+    }
+
+    .add-new-book_btn div:first-child {
+        @apply size-12 bg-white dark:bg-black rounded-full flex justify-center items-center;
+    }
+
+    .add-new-book_btn p {
+        @apply font-semibold text-lg text-black dark:text-black !important;
+    }
+
+    /* Statistics */
+    .stat {
+        @apply bg-white dark:bg-[#111111] dark:border dark:border-[rgba(255,255,255,0.1)] dark:shadow-none rounded-xl p-5 space-y-5 flex-1;
+    }
+
+    .stat-info {
+        @apply flex justify-between items-center gap-5;
+    }
+
+    .stat-label {
+        @apply font-medium text-base text-light-500 dark:text-muted-foreground whitespace-nowrap;
+    }
+
+    .stat-count {
+        @apply font-semibold text-3xl text-dark-400 dark:text-white;
+    }
+
+    /* Book Stripe */
+    .book-stripe {
+        @apply flex flex-row gap-4 bg-light-300 dark:bg-[#111111] dark:border dark:border-[rgba(255,255,255,0.1)] dark:shadow-none p-4 rounded-lg;
+    }
+
+    .book-stripe .title {
+        @apply font-semibold text-base text-dark-400 dark:text-white line-clamp-1;
+    }
+
+    .book-stripe .author {
+        @apply flex flex-wrap flex-row items-center gap-2;
+    }
+
+    .book-stripe .author p:first-child {
+        @apply text-light-500 dark:text-muted-foreground text-sm line-clamp-1;
+    }
+
+    .book-stripe .author div {
+        @apply size-1 rounded-full bg-light-500 dark:bg-muted-foreground;
+    }
+
+    .book-stripe .author p:last-child {
+        @apply text-light-500 dark:text-muted-foreground text-sm;
+    }
+
+    .book-stripe .user {
+        @apply mt-2.5 flex flex-row flex-wrap gap-5;
+    }
+
+    .book-stripe .user .avatar {
+        @apply flex flex-row items-center gap-1.5;
+    }
+
+    .book-stripe .user .avatar p {
+        @apply text-xs text-dark-200 dark:text-muted-foreground;
+    }
+
+    .book-stripe .borrow-date {
+        @apply flex flex-row items-center gap-1.5;
+    }
+
+    .book-stripe .borrow-date p {
+        @apply text-xs text-dark-200 dark:text-muted-foreground;
+    }
+
+    /* Color Picker */
+    .color-picker {
+        @apply flex min-h-14 flex-row items-center gap-3 rounded-md border border-gray-100 bg-light-600 p-4 text-base font-semibold text-dark-400;
+    }
+
+    .hex-input {
+        @apply h-full flex-1 bg-transparent font-ibm-plex-sans outline-none;
+    }
+
+    .hex-color-picker {
+        @apply absolute left-0 top-full z-50 mt-3;
+    }
+
+    /* Error Fallback */
+    .error-fallback {
+        @apply p-4 bg-red-100 text-red-700 rounded-md;
+    }
+
+    .error-fallback h2 {
+        @apply text-lg font-semibold mb-2;
+    }
+
+    /* Header */
+    .admin-header {
+        @apply flex lg:items-end items-start justify-between lg:flex-row flex-col gap-5 sm:mb-10 mb-5;
+    }
+
+    /* Search */
+    .admin-search {
+        @apply flex border border-gray-100 dark:border-[rgba(255,255,255,0.1)] dark:shadow-none min-h-14 items-center gap-1 rounded-md bg-light-600 dark:bg-[#111111] px-4 lg:max-w-md w-full;
+    }
+
+    .admin-search_input {
+        @apply w-full border-0 shadow-none bg-transparent dark:bg-transparent outline-none focus:outline-none focus:ring-0 focus:border-0 text-foreground dark:text-foreground placeholder:text-slate-500 dark:placeholder:text-muted-foreground !important;
+    }
+
+    /* Sidebar */
+    .admin-sidebar {
+        @apply sticky left-0 top-0 flex h-dvh flex-col justify-between bg-white dark:bg-black dark:border-r dark:border-[rgba(255,255,255,0.1)] dark:shadow-none px-5 pb-5 pt-10 w-64;
+        will-change: width;
+        transform: translateZ(0);
+    }
+
+    .admin-sidebar .logo {
+        @apply flex flex-row items-center justify-between gap-2 border-b border-dashed border-[rgba(255,255,255,0.1)] dark:border-[rgba(255,255,255,0.1)] pb-10;
+    }
+
+    .admin-sidebar .logo h1 {
+        @apply text-2xl font-semibold text-primary-admin dark:text-white max-md:hidden;
+    }
+
+    .admin-sidebar .link {
+        @apply flex flex-row items-center w-full gap-2 rounded-lg px-5 py-3.5 max-md:justify-center transition-colors;
+    }
+    
+    .admin-sidebar .link:hover {
+        @apply dark:bg-[#111111];
+    }
+
+    .admin-sidebar .link p {
+        @apply text-base font-medium max-md:hidden;
+    }
+
+    .admin-sidebar .user {
+        @apply my-8 flex w-full flex-row gap-2 rounded-full border border-light-400 dark:border-[rgba(255,255,255,0.1)] px-6 py-2 shadow-sm max-md:px-2;
+    }
+
+    /* User Card */
+    .user-card {
+        @apply w-40 bg-light-300 dark:bg-[#111111] dark:border dark:border-[rgba(255,255,255,0.1)] dark:shadow-none py-4 px-3 flex justify-center items-center flex-col rounded-xl text-center;
+    }
+
+    .user-card .name {
+        @apply font-medium mt-3 text-dark-400 dark:text-white line-clamp-1 w-full break-words;
+    }
+
+    .user-card .email {
+        @apply text-light-500 dark:text-muted-foreground text-sm line-clamp-1 break-words w-full;
+    }
+}

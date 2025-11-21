@@ -1,0 +1,1 @@
+DATABASE_URL=postgresql://neondb_owner:npg_bNWjlUg4n8uR@ep-snowy-frost-adro745x-pooler.c-2.us-east-1.aws.neon.tech/librarydb?sslmode=require&channel_binding=require

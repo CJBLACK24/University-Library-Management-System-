@@ -7,6 +7,7 @@ import { ReactNode } from "react";
 import { SessionProvider } from "next-auth/react";
 import { auth } from "@/auth";
 import { ThemeProvider } from "next-themes";
+import { Analytics } from "@vercel/analytics/next";
 
 const ibmPlexSans = localFont({
   src: [
@@ -39,14 +40,15 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
         <body
           className={`${ibmPlexSans.className} ${bebasNeue.variable} antialiased`}
         >
+          <Analytics />
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange={false}
-        >
-          {children}
-          <Toaster />
+          >
+            {children}
+            <Toaster />
           </ThemeProvider>
         </body>
       </SessionProvider>
